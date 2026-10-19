@@ -16,25 +16,25 @@ final class TicketController extends AbstractController
     */
     private const TICKETS = [
         [
-            'id' => 101,
+            'id' => 'INC-1001',
             'title' => 'No puedo acceder',
             'priority' => 'urgent',
             'status' => 'open',
         ],
         [
-            'id' => 102,
+            'id' => 'INC-1002',
             'title' => 'Error en factura',
             'priority' => 'high',
             'status' => 'in_progress',
         ],
         [
-            'id' => 103,
+            'id' => 'INC-1003',
             'title' => 'Actualizar datos',
             'priority' => 'normal',
             'status' => 'closed',
         ],
         [
-            'id' => 104,
+            'id' => 'INC-1004',
             'title' => 'El ordenador está en llamas',
             'priority' => 'urgent',
             'status' => 'in_progress',
@@ -53,4 +53,10 @@ final class TicketController extends AbstractController
             'title' => 'Incidencias'
         ]);
     }
+    #[Route('/tickets/{id}', name: 'app_ticket_show', methods: ['GET'])]
+    public function show(string $id): Response
+    
+{
+return new Response('Tickets: ' . $id);
+}
 }
